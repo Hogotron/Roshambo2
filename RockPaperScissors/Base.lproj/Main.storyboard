@@ -55,7 +55,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p49-Fu-8Hh">
                                 <rect key="frame" x="121" y="482" width="78" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="History"/>
+                                <connections>
+                                    <segue destination="NeZ-ow-hBs" kind="modal" id="eLa-hN-CTY"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgh-U1-uLB">
                                 <rect key="frame" x="121" y="414" width="78" height="21"/>
@@ -151,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2li-T9-sgs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="808.5" y="140.5"/>
+            <point key="canvasLocation" x="825" y="-115"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="1MG-gM-cCJ">
@@ -169,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yo8-y8-ku6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1281" y="141"/>
+            <point key="canvasLocation" x="825" y="573"/>
         </scene>
     </scenes>
     <resources>
