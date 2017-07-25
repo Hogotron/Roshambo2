@@ -31,4 +31,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         
     return cell
     }
+    
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

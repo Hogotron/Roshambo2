@@ -169,8 +169,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xnw-97-Ff9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="3Ne-MU-znT">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ncI-W6-Bih">
+                                            <connections>
+                                                <action selector="cancel:" destination="NeZ-ow-hBs" id="p1p-OB-BAc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hxf-HA-cWX">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="historyCell" textLabel="mbT-LA-BpH" detailTextLabel="nXt-10-Ikq" imageView="91i-zL-8QV" style="IBUITableViewCellStyleValue1" id="aZe-j9-3TU">
@@ -209,12 +221,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RCb-19-b2G" firstAttribute="top" secondItem="Hxf-HA-cWX" secondAttribute="bottom" id="21s-Zm-Mhr"/>
                             <constraint firstItem="Hxf-HA-cWX" firstAttribute="leading" secondItem="xJw-qT-rbn" secondAttribute="leading" id="GjQ-tu-riA"/>
-                            <constraint firstItem="Hxf-HA-cWX" firstAttribute="top" secondItem="AAd-UV-4xI" secondAttribute="bottom" id="Rau-Qf-Z1I"/>
+                            <constraint firstItem="Hxf-HA-cWX" firstAttribute="leading" secondItem="Xnw-97-Ff9" secondAttribute="leading" id="IFt-IL-h9J"/>
+                            <constraint firstItem="Hxf-HA-cWX" firstAttribute="top" secondItem="AAd-UV-4xI" secondAttribute="bottom" constant="44" id="Rau-Qf-Z1I"/>
                             <constraint firstAttribute="trailing" secondItem="Hxf-HA-cWX" secondAttribute="trailing" id="aOG-hg-c3J"/>
+                            <constraint firstItem="Hxf-HA-cWX" firstAttribute="bottom" secondItem="RCb-19-b2G" secondAttribute="top" id="gnp-rw-fYf"/>
+                            <constraint firstItem="Hxf-HA-cWX" firstAttribute="top" secondItem="Xnw-97-Ff9" secondAttribute="bottom" id="lZB-KE-1gc"/>
+                            <constraint firstItem="Hxf-HA-cWX" firstAttribute="trailing" secondItem="Xnw-97-Ff9" secondAttribute="trailing" id="ykZ-NN-VBp"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yo8-y8-ku6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
