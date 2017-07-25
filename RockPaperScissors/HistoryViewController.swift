@@ -23,7 +23,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell")!
         let results = self.history[(indexPath as NSIndexPath).row]
         
-        cell.textLabel?.text = "Winner"
+        let resultsView = ResultViewController()
+        
+        cell.textLabel?.text = resultsView.resultString(results)
+        cell.detailTextLabel?.text = "\(results.winner.description) vs. \(results.loser.description)"
+        cell.imageView?.image = resultsView.imageForMatch(results)
         
     return cell
     }
