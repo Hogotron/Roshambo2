@@ -57,7 +57,7 @@
                                 <rect key="frame" x="121" y="482" width="78" height="30"/>
                                 <state key="normal" title="History"/>
                                 <connections>
-                                    <segue destination="NeZ-ow-hBs" kind="modal" id="eLa-hN-CTY"/>
+                                    <segue destination="NeZ-ow-hBs" kind="modal" identifier="showHistory" id="eLa-hN-CTY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgh-U1-uLB">
@@ -85,6 +85,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="DRJ-HZ-SdQ"/>
                     <connections>
+                        <outlet property="historyButton" destination="p49-Fu-8Hh" id="PCL-Fv-KJi"/>
                         <outlet property="paperButton" destination="Ay7-rG-oQ3" id="W20-lL-iti"/>
                         <outlet property="rockButton" destination="2pQ-vK-SEv" id="dpm-25-xrO"/>
                         <outlet property="scissorsButton" destination="kDr-vO-WkA" id="3bC-0b-DYi"/>
@@ -187,6 +188,6 @@
         <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ih9-HG-qHO"/>
+        <segue reference="VKf-O8-YvW"/>
     </inferredMetricsTieBreakers>
 </document>

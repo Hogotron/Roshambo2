@@ -24,6 +24,7 @@ class RockPaperScissorsViewController: UIViewController {
     @IBOutlet weak var rockButton: UIButton!
     @IBOutlet weak var paperButton: UIButton!
     @IBOutlet weak var scissorsButton: UIButton!
+    @IBOutlet weak var historyButton: UIButton!
     
     // MARK: Actions
     
@@ -43,10 +44,6 @@ class RockPaperScissorsViewController: UIViewController {
         default:
             assert(false, "An unknown button is invoking makeYourMove()")
         }
-    }
-    
-    @IBAction func showHistory(_ sender: AnyObject) {
-        //TODO: Present HistoryViewController
     }
     
     // MARK: Play!
@@ -87,7 +84,13 @@ class RockPaperScissorsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Notice that this code works for both Scissors and Paper
-        let controller = segue.destination as! ResultViewController
-        controller.match = self.match
+        if segue.identifier == "throwDownScissors" || segue.identifier == "throwDownPaper" {
+            let controller = segue.destination as! ResultViewController
+            controller.match = self.match
+        } else if segue.identifier == "showHistory" {
+            let controller = segue.destination as! HistoryViewController
+            controller.history = self.history
+        }
     }
 }
+
