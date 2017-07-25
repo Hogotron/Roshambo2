@@ -57,7 +57,7 @@
                                 <rect key="frame" x="121" y="482" width="78" height="30"/>
                                 <state key="normal" title="History"/>
                                 <connections>
-                                    <segue destination="NeZ-ow-hBs" kind="modal" id="eLa-hN-CTY"/>
+                                    <segue destination="NeZ-ow-hBs" kind="modal" identifier="showHistory" id="eLa-hN-CTY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgh-U1-uLB">
@@ -85,6 +85,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="DRJ-HZ-SdQ"/>
                     <connections>
+                        <outlet property="historyButton" destination="p49-Fu-8Hh" id="PCL-Fv-KJi"/>
                         <outlet property="paperButton" destination="Ay7-rG-oQ3" id="W20-lL-iti"/>
                         <outlet property="rockButton" destination="2pQ-vK-SEv" id="dpm-25-xrO"/>
                         <outlet property="scissorsButton" destination="kDr-vO-WkA" id="3bC-0b-DYi"/>
@@ -167,8 +168,69 @@
                     <view key="view" contentMode="scaleToFill" id="xJw-qT-rbn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xnw-97-Ff9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="3Ne-MU-znT">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ncI-W6-Bih">
+                                            <connections>
+                                                <action selector="cancel:" destination="NeZ-ow-hBs" id="p1p-OB-BAc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hxf-HA-cWX">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="historyCell" textLabel="mbT-LA-BpH" detailTextLabel="nXt-10-Ikq" imageView="91i-zL-8QV" style="IBUITableViewCellStyleValue1" id="aZe-j9-3TU">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aZe-j9-3TU" id="5ih-48-oW6">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mbT-LA-BpH">
+                                                    <rect key="frame" x="73" y="13" width="29" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nXt-10-Ikq">
+                                                    <rect key="frame" x="272" y="15" width="33" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="LaunchLogo" id="91i-zL-8QV">
+                                                    <rect key="frame" x="15" y="0.0" width="43" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="NeZ-ow-hBs" id="bhg-qt-CQp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hxf-HA-cWX" firstAttribute="leading" secondItem="xJw-qT-rbn" secondAttribute="leading" id="GjQ-tu-riA"/>
+                            <constraint firstItem="Hxf-HA-cWX" firstAttribute="leading" secondItem="Xnw-97-Ff9" secondAttribute="leading" id="IFt-IL-h9J"/>
+                            <constraint firstItem="Hxf-HA-cWX" firstAttribute="top" secondItem="AAd-UV-4xI" secondAttribute="bottom" constant="44" id="Rau-Qf-Z1I"/>
+                            <constraint firstAttribute="trailing" secondItem="Hxf-HA-cWX" secondAttribute="trailing" id="aOG-hg-c3J"/>
+                            <constraint firstItem="Hxf-HA-cWX" firstAttribute="bottom" secondItem="RCb-19-b2G" secondAttribute="top" id="gnp-rw-fYf"/>
+                            <constraint firstItem="Hxf-HA-cWX" firstAttribute="top" secondItem="Xnw-97-Ff9" secondAttribute="bottom" id="lZB-KE-1gc"/>
+                            <constraint firstItem="Hxf-HA-cWX" firstAttribute="trailing" secondItem="Xnw-97-Ff9" secondAttribute="trailing" id="ykZ-NN-VBp"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yo8-y8-ku6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -176,6 +238,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LaunchLogo" width="80" height="80"/>
         <image name="paper" width="75" height="65"/>
         <image name="rock" width="75" height="65"/>
         <image name="rock-paper-scissors1" width="460" height="276"/>
@@ -187,6 +250,6 @@
         <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ih9-HG-qHO"/>
+        <segue reference="VKf-O8-YvW"/>
     </inferredMetricsTieBreakers>
 </document>
